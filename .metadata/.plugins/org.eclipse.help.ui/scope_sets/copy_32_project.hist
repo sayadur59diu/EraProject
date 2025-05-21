@@ -1,0 +1,6 @@
+#Sun May 11 12:52:16 ALMT 2025
+__DEFAULT__=false
+expression=copy project
+org.eclipse.help.ui.localSearch.master=true
+org.eclipse.sdk.Eclipse.master=true
+org.eclipse.sdk.Google.master=true
