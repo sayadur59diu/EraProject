@@ -43,7 +43,7 @@ public class EmployeeController {
 		return _employeeRepository.save(employee);
 	}
 
-	@PutMapping("id/{name}")
+	@PutMapping("{name}")
 	public ResponseEntity<?> updateByname(@PathVariable String name, @RequestBody Employee updatedData){
 
 		Optional<Employee> optionalEmp=_employeeRepository.findByname(name);
