@@ -33,7 +33,7 @@ public class EmployeeController {
 		return _employeeRepository.save(employee);
 	}
 
-	@GetMapping("/id")
+	@GetMapping("/{id}")
 	public Employee getByid(@PathVariable int id) {
 		return _employeeRepository.findById(id).orElse(null);
 	}
