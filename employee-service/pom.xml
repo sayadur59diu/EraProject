@@ -11,7 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>employee-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SpringBootStarterDemo</name>
+	<name>employee-service</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -45,30 +45,32 @@
 		
 		<!--Oracle JDBC Driver-->
 		<dependency>
-		    <groupId>com.oracle.database.jdbc</groupId>
-		    <artifactId>ojdbc8</artifactId>
-		   
-		   
+    		<groupId>com.oracle.database.jdbc</groupId>
+    		<artifactId>ojdbc8</artifactId>
+    		<version>21.17.0.0</version>
 		</dependency>
 		
-		<!--Jakarta Persistence API-->
-
-
+		<!--Jakarta Persistence API-->	
+		
 		<dependency>
 		    <groupId>jakarta.persistence</groupId>
 		    <artifactId>jakarta.persistence-api</artifactId>
-		   
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+		    <version>3.2.0</version>
 		</dependency>	
+
+		
+	
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-test</artifactId>
+		    <version>3.4.5</version>
+		    <scope>test</scope>
+		</dependency>
 	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
+			<version>3.4.5</version>
 			<scope>runtime</scope>
 		</dependency>
 	
@@ -79,6 +81,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>3.4.5</version>
 			</plugin>
 		</plugins>
 	</build>

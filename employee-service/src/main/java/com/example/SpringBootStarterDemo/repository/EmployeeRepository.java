@@ -9,7 +9,7 @@ import com.example.SpringBootStarterDemo.model.Employee;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
 
-	
+
 
 
 
