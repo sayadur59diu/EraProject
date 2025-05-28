@@ -1,0 +1,17 @@
+<p>appgen-form works!</p>
+
+<h2>Application Generator Form</h2>
+<form (ngSubmit)="submitForm()" #appForm="ngForm">
+
+  <input name="compCode" [(ngModel)]="formData.compCode" placeholder="Company Code" required>
+  <input name="userId" [(ngModel)]="formData.userId" placeholder="User ID" required>
+  <input name="sessionId" [(ngModel)]="formData.sessionId" placeholder="Session ID" required>
+  <input name="existingCustFlg" [(ngModel)]="formData.existingCustFlg" placeholder="Existing Cust Flag" required>
+  <input name="applyDate" [(ngModel)]="formData.applyDate" placeholder="Apply Date (DD/MM/YYYY)" required>
+  <input name="accountNo" [(ngModel)]="formData.accountNo" placeholder="Account No">
+
+  <!-- Continue with other fields as needed -->
+  
+  <button type="submit">Submit</button>
+</form>
+

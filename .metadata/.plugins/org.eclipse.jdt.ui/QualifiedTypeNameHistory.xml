@@ -32,17 +32,9 @@
     <fullyQualifiedTypeName name="java.lang.Deprecated"/>
     <fullyQualifiedTypeName name="com.example.SpringBootStarterDemo.model.Department"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.PersistenceContext"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.EntityManager"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.StoredProcedureQuery"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.ParameterMode"/>
-    <fullyQualifiedTypeName name="com.example.SpringBootStarterDemo.model.RetailApplicationResponse"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
-    <fullyQualifiedTypeName name="com.example.SpringBootStarterDemo.model.RetailApplicationRequest"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
     <fullyQualifiedTypeName name="jakarta.annotation.Generated"/>
     <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
@@ -50,4 +42,14 @@
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="org.apache.catalina.connector.Response"/>
     <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="com.example.SpringBootStarterDemo.repository.RetailAppRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.PersistenceContext"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.EntityManager"/>
+    <fullyQualifiedTypeName name="com.example.SpringBootStarterDemo.model.RetailApplicationResponse"/>
+    <fullyQualifiedTypeName name="com.example.SpringBootStarterDemo.model.RetailApplicationRequest"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.StoredProcedureQuery"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.ParameterMode"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
 </qualifiedTypeNameHistroy>
