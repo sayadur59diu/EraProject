@@ -3,12 +3,9 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-appgen-form',
-  imports: [],
   templateUrl: './appgen-form.component.html',
-  styleUrl: './appgen-form.component.scss'
+  styleUrls: ['./appgen-form.component.css']
 })
-
-
 export class AppgenFormComponent {
   formData = {
     compCode: '001',
