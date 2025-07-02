@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+/Users/venkataramananamirthalingam/work/dpatterns/structural/.metadata/.plugins/org.eclipse.jdt.core
+2657394288.index
+3766340994.index
+1865797976.index

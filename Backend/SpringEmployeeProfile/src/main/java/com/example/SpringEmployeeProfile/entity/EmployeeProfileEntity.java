@@ -1,6 +1,9 @@
 package com.example.SpringEmployeeProfile.entity;
 
+
+import com.example.SpringEmployeeProfile.validation.ValidDesigCode;
 import jakarta.persistence.*;
+import jakarta.validation.Constraint;
 import jakarta.validation.constraints.*;
 import lombok.*;
 import org.hibernate.annotations.NotFound;
@@ -48,6 +51,18 @@ public class EmployeeProfileEntity {
     @Column(name = "inserted_date")
     private LocalDateTime insertedDate;
 
+    @Column(name = "desig_code", length = 3)
+    @Size(max = 3, message = "Designation code must not exceed 3 characters")
+    @NotBlank(message = "Designation code is required")
+    @ValidDesigCode
+    private String desigCode;
+
+    @Column(name = "status", length = 1)
+    @Size(max = 1, message = "Status must be a single character")
+    @Pattern(regexp = "^[AI]$", message = "Status must be 'A' for Active or 'I' for Inactive")
+    @NotBlank(message = "Status is required")
+    private String status;
+
     // Automatically validate DOB age on persist
     @PrePersist
     public void validateBeforeInsert() {
@@ -61,8 +76,5 @@ public class EmployeeProfileEntity {
         }
     }
 
-   // public String getEmpId() {
-   //     return empId;
-  //
-    //  }
+
 }
