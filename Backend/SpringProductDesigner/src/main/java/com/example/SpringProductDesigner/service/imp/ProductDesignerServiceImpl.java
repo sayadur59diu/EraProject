@@ -43,8 +43,25 @@ public class ProductDesignerServiceImpl implements ProductDesignerService {
     @Override
     public ProductDesignerEntity getProductDesignByBranchAndType(String branchCode, String productTypeCode) {
         ProductDesignerId id = new ProductDesignerId(branchCode, productTypeCode);
-        //return repository.findById(Id).orElse(null); // ← Pass the object, not a String
         return repository.findById(id).orElse(null); // Use the correct ID type
+    }
+
+    @Override
+    public void deleteProductDesign(ProductDesignerEntity productDesigner) {
+        if (productDesigner == null || productDesigner.getBranchCode() == null || productDesigner.getProductTypeCode() == null) {
+            throw new IllegalArgumentException("Product designer must not be null and must have valid branch code and product type code");
+        }
+        ProductDesignerId id = new ProductDesignerId(productDesigner.getBranchCode(), productDesigner.getProductTypeCode());
+        if (!repository.existsById(id)) {
+            throw new IllegalArgumentException("Product designer with this branch code and product type code does not exist");
+        }
+        repository.delete(productDesigner);
+    }
+
+    @Override
+    public ProductDesignerEntity updateProductDesigner(ProductDesignerEntity existing) {
+        repository.save(existing);
+        return existing;
     }
 
 }

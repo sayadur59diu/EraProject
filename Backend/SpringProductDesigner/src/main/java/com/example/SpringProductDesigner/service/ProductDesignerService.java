@@ -12,4 +12,8 @@ public interface ProductDesignerService  {
 
     ProductDesignerEntity getProductDesignByBranchAndType(String branchCode, String productTypeCode);
 
+    void deleteProductDesign(ProductDesignerEntity productDesigner);
+
+    ProductDesignerEntity updateProductDesigner(ProductDesignerEntity existing);
+
 }
