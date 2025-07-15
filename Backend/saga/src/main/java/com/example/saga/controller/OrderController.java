@@ -22,7 +22,8 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<List<String>> createOrder(@RequestBody OrderRequest request) {
-        List<String> result = coordinator.startSaga(request.getOrderId(), request.isPaymentSuccess());
+          List<String> result = coordinator.startSaga(request.getOrderId(), request.isPaymentSuccess());
+
         return ResponseEntity.ok(result);
     }
 }

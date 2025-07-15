@@ -6,5 +6,8 @@ import lombok.Data;
 public class OrderRequest {
     private String orderId;
     private boolean paymentSuccess;
+
+
+
 }
 
