@@ -1,25 +1,20 @@
 package com.example.SpringBootStarterDemo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="employees")
 public class Employee {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "emp_seq")
+	@SequenceGenerator(name = "emp_seq", sequenceName = "EMPLOYEE_SEQ", allocationSize = 1)
 	private int id;
 	private String name;
 	private String email;
 	private double salary;
-
-
-
-
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
