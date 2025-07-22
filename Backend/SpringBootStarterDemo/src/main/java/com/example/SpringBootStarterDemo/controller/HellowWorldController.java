@@ -12,7 +12,7 @@ public class HellowWorldController {
 	@GetMapping("/")
 	
 	public String hello() {
-		return "Hello World";
+		return "Hello everyone! Welcome to my first Spring Boot Application.";
 	}
 	
 			
