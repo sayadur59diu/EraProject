@@ -24,5 +24,6 @@ public class RabbitmqDemoApplication implements CommandLineRunner {
         rabbitTemplate.convertAndSend("direct.exchange", "direct.key", "Hello Direct");
         rabbitTemplate.convertAndSend("topic.exchange", "topic.message", "Hello Topic");
         rabbitTemplate.convertAndSend("fanout.exchange", "", "Hello Fanout");
+        rabbitTemplate.convertAndSend("fanout.exchange", "", "Another message for Fanout");
     }
 }
