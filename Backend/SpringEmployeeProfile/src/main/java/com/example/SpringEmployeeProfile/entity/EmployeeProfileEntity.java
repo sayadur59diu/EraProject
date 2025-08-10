@@ -54,7 +54,7 @@ public class EmployeeProfileEntity {
     @Column(name = "desig_code", length = 3)
     @Size(max = 3, message = "Designation code must not exceed 3 characters")
     @NotBlank(message = "Designation code is required")
-    @ValidDesigCode
+    //@ValidDesigCode
     private String desigCode;
 
     @Column(name = "status", length = 1)

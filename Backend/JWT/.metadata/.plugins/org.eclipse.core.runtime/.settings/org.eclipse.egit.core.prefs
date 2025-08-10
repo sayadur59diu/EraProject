@@ -1,0 +1,4 @@
+GitRepositoriesView.GitDirectories=/Users/venkataramananamirthalingam/work/july22/kuber-application/spring-boot-demo/.git\:/Users/venkataramananamirthalingam/work/july22/cicdazure/devdemo/.git\:
+GitRepositoriesView.GitDirectories.relative=kuber-application/spring-boot-demo/.git\:cicdazure/devdemo/.git\:
+core_autoIgnoreDerivedResources=false
+eclipse.preferences.version=1

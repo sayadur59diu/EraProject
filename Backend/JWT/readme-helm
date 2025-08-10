@@ -1,0 +1,37 @@
+readme
+
+
+Start docker
+
+minikube start
+
+
+helm install demo-app ./springboot-redis-chart
+
+kubectl get deployments
+kubectl get pods
+kubectl get svc
+
+
+Config map, secret
+
+kubectl create configmap sample-config --from-literal=APP_MODE=development --from-literal=LOG_LEVEL=debug
+kubectl create secret generic sample-secret --from-literal=DB_PASSWORD=mysecretpassword --from-literal=API_KEY=123456
+
+
+kubectl get configmap sample-config -o yaml
+kubectl get secret sample-secret -o yaml
+
+see in minikube
+
+minikube start
+minikube dashboard
+
+logging spanid, trace id??
+
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install monitoring prometheus-community/kube-prometheus-stack
+
+kubectl port-forward svc/monitoring-grafana 3000:80
+# Open http://localhost:3000
