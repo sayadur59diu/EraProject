@@ -1,0 +1,97 @@
+version: '3.8'
+
+services:
+
+  # Oracle DB
+  oracle-db:
+    image: gvenzl/oracle-xe:21-slim
+    container_name: oracle-db
+    environment:
+      - ORACLE_PASSWORD=nanobanking
+      - ORACLE_USER=nanobanking
+      - ORACLE_DATABASE=XEPDB1
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    healthcheck:
+      test: ["CMD", "bash", "-c", "echo 'SELECT 1 FROM dual;' | sqlplus -s nanobanking/nanobanking@XEPDB1"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+
+  # Eureka Service Registry
+  service-registry:
+    build: ./service-registry
+    container_name: service-registry
+    ports:
+      - "8761:8761"
+    depends_on:
+      - oracle-db
+
+  # Config Server
+  config-server:
+    build: ./config-server
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    depends_on:
+      - service-registry
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+
+  # API Gateway
+  api-gateway:
+    build: ./api-gateway
+    container_name: api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - service-registry
+      - config-server
+
+  # Customer Service
+  customer-service:
+    build: ./services/customer-service
+    container_name: customer-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - oracle-db
+      - service-registry
+      - config-server
+
+  # Account Service
+  account-service:
+    build: ./services/account-service
+    container_name: account-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - oracle-db
+      - service-registry
+      - config-server
+
+  # Transaction Service
+  transaction-service:
+    build: ./services/transaction-service
+    container_name: transaction-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      - oracle-db
+      - service-registry
+      - config-server
+
+  # Notification Service
+  notification-service:
+    build: ./services/notification-service
+    container_name: notification-service
+    ports:
+      - "8084:8084"
+    depends_on:
+      - service-registry
+      - config-server
+
+networks:
+  default:
+    driver: bridge

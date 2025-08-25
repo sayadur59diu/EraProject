@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@//10.11.201.15:1526/BDBLCBS
+    username: mybank
+    password: mybank
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: none   # keep 'none' for existing schema; set to 'validate' in prod
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+    open-in-view: false
+
+  ai:
+    openai:
+      api-key: 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  # supply via env variable
+      chat:
+        options:
+          model: gpt-4o-mini
+          temperature: 0.0
+
+# Swagger UI: http://localhost:8080/swagger-ui.html
