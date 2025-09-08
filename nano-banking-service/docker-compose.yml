@@ -8,13 +8,15 @@ services:
     container_name: oracle-db
     environment:
       - ORACLE_PASSWORD=nanobanking
-      - ORACLE_USER=nanobanking
       - ORACLE_DATABASE=XEPDB1
     ports:
-      - "1521:1521"
+      - "1522:1522"
       - "5500:5500"
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+      - ./db:/opt/oracle/scripts/setup
     healthcheck:
-      test: ["CMD", "bash", "-c", "echo 'SELECT 1 FROM dual;' | sqlplus -s nanobanking/nanobanking@XEPDB1"]
+      test: ["CMD", "bash", "-c", "echo 'SELECT 1 FROM dual;' | sqlplus -s system/nanobanking@XEPDB1"]
       interval: 30s
       timeout: 10s
       retries: 10
@@ -52,13 +54,18 @@ services:
   # Customer Service
   customer-service:
     build: ./services/customer-service
-    container_name: customer-service
+    container_name: customer-servic
+    image: customer-service
     ports:
       - "8081:8081"
     depends_on:
       - oracle-db
       - service-registry
       - config-server
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:oracle:thin:@oracle-db:1522/XEPDB1
+      - SPRING_DATASOURCE_USERNAME=customer_user
+      - SPRING_DATASOURCE_PASSWORD=customer_pass
 
   # Account Service
   account-service:
@@ -70,6 +77,10 @@ services:
       - oracle-db
       - service-registry
       - config-server
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:oracle:thin:@oracle-db:1522/XEPDB1
+      - SPRING_DATASOURCE_USERNAME=account_user
+      - SPRING_DATASOURCE_PASSWORD=account_pass
 
   # Transaction Service
   transaction-service:
@@ -81,6 +92,10 @@ services:
       - oracle-db
       - service-registry
       - config-server
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:oracle:thin:@oracle-db:1522/XEPDB1
+      - SPRING_DATASOURCE_USERNAME=txn_user
+      - SPRING_DATASOURCE_PASSWORD=txn_pass
 
   # Notification Service
   notification-service:
@@ -92,6 +107,5 @@ services:
       - service-registry
       - config-server
 
-networks:
-  default:
-    driver: bridge
+volumes:
+  oracle-data:
